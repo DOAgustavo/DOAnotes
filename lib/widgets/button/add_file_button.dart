@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'folder_item.dart';
 
 class BotaoAdicionarArquivo extends StatelessWidget {
-  final VoidCallback onPressed;
+  final Function(FolderItem) onAdd;
 
-  BotaoAdicionarArquivo({required this.onPressed});
+  BotaoAdicionarArquivo({required this.onAdd});
+
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _countController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +15,52 @@ class BotaoAdicionarArquivo extends StatelessWidget {
       width: 40.0, // Ajuste a largura conforme necessário
       height: 40.0, // Ajuste a altura conforme necessário
       child: FloatingActionButton(
-        onPressed: onPressed,
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text('Adicionar Novo Arquivo'),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextField(
+                    controller: _nameController,
+                    decoration: InputDecoration(labelText: 'Nome'),
+                  ),
+                  TextField(
+                    controller: _countController,
+                    decoration: InputDecoration(labelText: 'Contagem'),
+                    keyboardType: TextInputType.number,
+                  ),
+                ],
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('Cancelar'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    final String name = _nameController.text;
+                    final int count = int.tryParse(_countController.text) ?? 0;
+                    final FolderItem newItem = FolderItem(
+                      name: name,
+                      count: count,
+                      onTap: () {
+                        // Defina a ação ao clicar no novo item
+                      },
+                    );
+                    onAdd(newItem);
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('Adicionar'),
+                ),
+              ],
+            ),
+          );
+        },
         backgroundColor: const Color.fromARGB(255, 138, 138, 138),
         child: Stack(
           alignment: Alignment.center,
