@@ -21,8 +21,9 @@ class PastasScreen extends StatelessWidget {
           Column(
             children: [
               Container(
-              
-                padding: const EdgeInsets.only(top: 40.0, bottom: 20.0), // Adicione padding para o conteúdo
+                padding: const EdgeInsets.only(
+                    top: 40.0,
+                    bottom: 20.0), // Adicione padding para o conteúdo
                 child: Center(
                   child: Text(
                     'Pastas',
@@ -35,7 +36,7 @@ class PastasScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -43,14 +44,22 @@ class PastasScreen extends StatelessWidget {
                       controller: _searchController,
                       hintText: 'Pesquise aqui...',
                     ),
-                    SizedBox(height: 12), // Diminuir o espaço entre o botão de pesquisa e o restante do conteúdo
+                    SizedBox(
+                        height:
+                            12), // Diminuir o espaço entre o botão de pesquisa e o restante do conteúdo
                     Container(
                       decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 58, 58, 58),
-                        borderRadius: BorderRadius.circular(10), // Diminuir o borderRadius
+                        borderRadius: BorderRadius.circular(
+                            10), // Diminuir o borderRadius
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 6.0, bottom: 6.0, left: 5.0, right: 5.0), // Diminuir o padding superior e inferior
+                        padding: const EdgeInsets.only(
+                            top: 6.0,
+                            bottom: 6.0,
+                            left: 5.0,
+                            right:
+                                5.0), // Diminuir o padding superior e inferior
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

@@ -13,11 +13,19 @@ class BotaoAdicionarArquivo extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Icon(Icons.folder, size: 10), // Diminuir o tamanho do ícone
+          Icon(
+            Icons.folder,
+            size: 25,
+            color: const Color.fromARGB(255, 233, 233, 233),
+          ), // Alterar a cor do ícone
           Positioned(
-            left:100,
-            bottom: 100,
-            child: Icon(Icons.add, size: 10), // Diminuir o tamanho do ícone
+            right: 0,
+            bottom: 0,
+            child: Icon(
+              Icons.add_circle,
+              size: 15,
+              color: const Color.fromARGB(255, 58, 58, 58),
+            ), // Alterar a cor do ícone
           ),
         ],
       ),

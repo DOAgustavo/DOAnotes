@@ -15,25 +15,36 @@ class FolderItem extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
-          highlightColor: const Color.fromARGB(255, 133, 131, 131).withOpacity(0.3),
+          highlightColor:
+              const Color.fromARGB(255, 133, 131, 131).withOpacity(0.3),
           splashColor: const Color.fromARGB(255, 110, 110, 110),
           child: Container(
             padding: const EdgeInsets.all(10.0), // Diminuir o padding
             child: Row(
               children: [
-                Icon(Icons.folder, color: const Color.fromARGB(255, 255, 255, 255), size: 20), // Diminuir o tamanho do ícone
+                Icon(Icons.folder,
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    size: 20), // Diminuir o tamanho do ícone
                 SizedBox(width: 8),
                 Text(
                   name,
-                  style: TextStyle(fontSize: 16, color: const Color.fromARGB(255, 255, 255, 255)), // Diminuir o tamanho da fonte
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: const Color.fromARGB(
+                          255, 255, 255, 255)), // Diminuir o tamanho da fonte
                 ),
                 Spacer(),
                 Text(
                   count.toString(),
-                  style: TextStyle(fontSize: 16, color: const Color.fromARGB(255, 255, 255, 255)), // Diminuir o tamanho da fonte
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: const Color.fromARGB(
+                          255, 255, 255, 255)), // Diminuir o tamanho da fonte
                 ),
                 SizedBox(width: 8),
-                Icon(Icons.arrow_forward, color: const Color.fromARGB(255, 255, 255, 255), size: 20), // Diminuir o tamanho do ícone
+                Icon(Icons.arrow_forward,
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    size: 20), // Diminuir o tamanho do ícone
               ],
             ),
           ),
