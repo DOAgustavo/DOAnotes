@@ -13,10 +13,10 @@ class CustomTextField extends StatelessWidget {
     Key? key,
     required this.controller,
     required this.hintText,
-    this.width = 300, 
-    this.height = 60, 
-    this.keyboardType = TextInputType.text, 
-    this.obscureText = false, 
+    this.width = 300,
+    this.height = 60,
+    this.keyboardType = TextInputType.text,
+    this.obscureText = false,
   }) : super(key: key);
 
   @override
@@ -35,25 +35,26 @@ class CustomTextField extends StatelessWidget {
       child: TextField(
         controller: controller,
         style: GoogleFonts.poppins(
-          fontWeight: FontWeight.w600, 
-          fontSize: 22, 
+          fontWeight: FontWeight.w600,
+          fontSize: 22,
           color: Colors.white,
         ),
-        keyboardType: keyboardType, 
-        obscureText: obscureText, 
+        keyboardType: keyboardType,
+        obscureText: obscureText,
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: GoogleFonts.poppins(
-            fontWeight: FontWeight.w600, 
-            fontSize: 22, 
-            color: const Color(0xFFB0B0B0), 
+            fontWeight: FontWeight.w600,
+            fontSize: 22,
+            color: const Color(0xFFB0B0B0),
           ),
           border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12), 
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
         ),
-        textAlignVertical: TextAlignVertical.center, 
+        textAlignVertical: TextAlignVertical.center,
       ),
     );
   }

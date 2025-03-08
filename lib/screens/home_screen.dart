@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import '../widgets/button/arquivo.dart';
-import '../widgets/button/botao_adicionar_arquivo.dart';
+import '../widgets/forms/background_container.dart';
+import '../widgets/Text/page_title.dart';
+import '../widgets/button/custom_padding_container.dart';
+import '../widgets/button/folder_item.dart';
+import '../widgets/button/add_file_button.dart';
+import '../widgets/button/add_note_button.dart';
 import '../widgets/button/pesquisar.dart';
 
 class App extends StatelessWidget {
@@ -16,50 +20,25 @@ class PastasScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.only(
-                    top: 40.0,
-                    bottom: 20.0), // Adicione padding para o conteúdo
-                child: Center(
-                  child: Text(
-                    'Pastas',
-                    style: TextStyle(
-                      color: const Color.fromARGB(255, 0, 0, 0),
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    BotaoPesquisa(
-                      controller: _searchController,
-                      hintText: 'Pesquise aqui...',
-                    ),
-                    SizedBox(
-                        height:
-                            12), // Diminuir o espaço entre o botão de pesquisa e o restante do conteúdo
-                    Container(
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 58, 58, 58),
-                        borderRadius: BorderRadius.circular(
-                            10), // Diminuir o borderRadius
+      body: BackgroundContainer(
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                NamePage(text: 'Pastas'),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      BotaoPesquisa(
+                        controller: _searchController,
+                        hintText: 'Pesquise aqui...',
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            top: 6.0,
-                            bottom: 6.0,
-                            left: 5.0,
-                            right:
-                                5.0), // Diminuir o padding superior e inferior
+                      SizedBox(
+                        height: 12,
+                      ), // Diminuir o espaço entre o botão de pesquisa e o restante do conteúdo
+                      CustomPaddingContainer(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -88,23 +67,33 @@ class PastasScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-          Positioned(
-            bottom: 16,
-            left: 16,
-            child: BotaoAdicionarArquivo(
-              onPressed: () {
-                // Ação ao clicar no botão de adicionar arquivo
-                print('Adicionar arquivo clicado');
-              },
+              ],
             ),
-          ),
-        ],
+            Positioned(
+              bottom: 16,
+              left: 16,
+              child: BotaoAdicionarArquivo(
+                onPressed: () {
+                  // Ação ao clicar no botão de adicionar arquivo
+                  print('Adicionar arquivo clicado');
+                },
+              ),
+            ),
+            Positioned(
+              bottom: 16,
+              right: 16,
+              child: AddNoteButton(
+                onPressed: () {
+                  // Ação ao clicar no botão de adicionar nota
+                  print('Adicionar nota clicado');
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

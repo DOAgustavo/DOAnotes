@@ -9,25 +9,29 @@ class BotaoPesquisa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 1.0), // Diminuir o padding
+      padding: const EdgeInsets.symmetric(
+          horizontal: 6.0, vertical: 2.0), // Ajustar o padding
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(30), // Diminuir o borderRadius
+        borderRadius: BorderRadius.circular(30), // Manter o borderRadius
         border: Border.all(color: Colors.grey),
       ),
       child: Row(
         children: [
-          Icon(Icons.search, color: Colors.grey, size: 20), // Diminuir o tamanho do ícone
-          SizedBox(width: 6),
+          Icon(Icons.search,
+              color: Colors.grey, size: 20), // Manter o tamanho do ícone
+          SizedBox(width: 4),
           Expanded(
             child: TextField(
               controller: controller,
               decoration: InputDecoration(
                 hintText: hintText,
-                hintStyle: TextStyle(color: Colors.grey, fontSize: 16), // Diminuir o tamanho da fonte
+                hintStyle: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 18), // Manter o tamanho da fonte
                 border: InputBorder.none,
               ),
-              style: TextStyle(fontSize: 16), // Diminuir o tamanho da fonte
+              style: TextStyle(fontSize: 14), // Manter o tamanho da fonte
             ),
           ),
         ],
