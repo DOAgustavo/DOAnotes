@@ -20,8 +20,7 @@ class BotaoAdicionarArquivo extends StatelessWidget {
             builder: (context) => AlertDialog(
               title: Text('Adicionar Novo Arquivo'),
               content: Container(
-                width: 100,
-                height: 100,
+                height: 50,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [

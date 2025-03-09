@@ -84,17 +84,19 @@ class _PastasScreenState extends State<PastasScreen> {
                               ],
                             ),
                           ),
-                          SizedBox(
-                            height: 16,
-                          ), // Espaço entre os itens existentes e o novo item
-                          CustomPaddingContainer(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                ...newItems,
-                              ],
+                          if (newItems.isNotEmpty) ...[
+                            SizedBox(
+                              height: 16,
+                            ), // Espaço entre os itens existentes e o novo item
+                            CustomPaddingContainer(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  ...newItems,
+                                ],
+                              ),
                             ),
-                          ),
+                          ],
                         ],
                       ),
                     ),
