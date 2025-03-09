@@ -7,7 +7,6 @@ class BotaoAdicionarArquivo extends StatelessWidget {
   BotaoAdicionarArquivo({required this.onAdd});
 
   final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _countController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +19,18 @@ class BotaoAdicionarArquivo extends StatelessWidget {
             context: context,
             builder: (context) => AlertDialog(
               title: Text('Adicionar Novo Arquivo'),
-              content: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TextField(
-                    controller: _nameController,
-                    decoration: InputDecoration(labelText: 'Nome'),
-                  ),
-                  TextField(
-                    controller: _countController,
-                    decoration: InputDecoration(labelText: 'Contagem'),
-                    keyboardType: TextInputType.number,
-                  ),
-                ],
+              content: Container(
+                width: 100,
+                height: 100,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TextField(
+                      controller: _nameController,
+                      decoration: InputDecoration(labelText: 'Nome'),
+                    ),
+                  ],
+                ),
               ),
               actions: [
                 TextButton(
@@ -44,10 +42,9 @@ class BotaoAdicionarArquivo extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     final String name = _nameController.text;
-                    final int count = int.tryParse(_countController.text) ?? 0;
                     final FolderItem newItem = FolderItem(
                       name: name,
-                      count: count,
+                      count: 0, // Defina um valor padrão para count
                       onTap: () {
                         // Defina a ação ao clicar no novo item
                       },
