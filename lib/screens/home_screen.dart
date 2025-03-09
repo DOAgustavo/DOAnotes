@@ -6,6 +6,7 @@ import '../widgets/button/folder_item.dart';
 import '../widgets/button/add_file_button.dart';
 import '../widgets/button/add_note_button.dart';
 import '../widgets/button/pesquisar.dart';
+import '../widgets/functions/new_items_list.dart';
 
 class App extends StatelessWidget {
   @override
@@ -45,6 +46,12 @@ class _PastasScreenState extends State<PastasScreen> {
   void addItem(FolderItem item) {
     setState(() {
       newItems.add(item);
+    });
+  }
+
+  void removeItem(int index) {
+    setState(() {
+      newItems.removeAt(index);
     });
   }
 
@@ -88,13 +95,9 @@ class _PastasScreenState extends State<PastasScreen> {
                             SizedBox(
                               height: 16,
                             ), // Espaço entre os itens existentes e o novo item
-                            CustomPaddingContainer(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  ...newItems,
-                                ],
-                              ),
+                            NewItemsList(
+                              newItems: newItems,
+                              onRemove: removeItem,
                             ),
                           ],
                         ],
