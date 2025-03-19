@@ -15,7 +15,7 @@ class NamePage extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: const Color(0xFF303030), // Cor cinza claro
+            color: const Color.fromARGB(255, 255, 255, 255), // Cor cinza claro
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),

@@ -8,7 +8,7 @@ class BackgroundContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFFEDE7F6), // Cor de fundo verde claro
+      color: const Color.fromARGB(255, 19, 19, 19), // Cor de fundo verde claro
       child: child,
     );
   }

@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 class BotaoPesquisa extends StatelessWidget {
   final TextEditingController controller;
-  final String hintText;
+  final String text = "pesquise aqui..."; // Valor fixo para o texto
 
-  BotaoPesquisa({required this.controller, required this.hintText});
+  const BotaoPesquisa({required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 40,
       padding: const EdgeInsets.symmetric(
           horizontal: 6.0, vertical: 2.0), // Ajustar o padding
       decoration: BoxDecoration(
@@ -16,22 +17,21 @@ class BotaoPesquisa extends StatelessWidget {
         borderRadius: BorderRadius.circular(30), // Manter o borderRadius
         border: Border.all(color: Colors.grey),
       ),
-      child: Row(
+       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center, // Alinhar verticalmente
         children: [
           Icon(Icons.search,
-              color: Colors.grey, size: 20), // Manter o tamanho do ícone
-          SizedBox(width: 4),
+              color: Colors.grey, size: 20), // Ícone de pesquisa
+          SizedBox(width: 4), // Espaço entre o ícone e o campo de texto
           Expanded(
             child: TextField(
               controller: controller,
               decoration: InputDecoration(
-                hintText: hintText,
-                hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 18), // Manter o tamanho da fonte
-                border: InputBorder.none,
+                hintText: text, // Texto de dica
+                border: InputBorder.none, // Sem borda
+                isCollapsed: true, // Remove o padding interno do TextField
               ),
-              style: TextStyle(fontSize: 14), // Manter o tamanho da fonte
+              style: TextStyle(fontSize: 14), // Tamanho da fonte
             ),
           ),
         ],

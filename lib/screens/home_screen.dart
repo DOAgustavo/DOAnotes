@@ -6,7 +6,7 @@ import '../widgets/button/folder_item.dart';
 import '../widgets/button/add_file_button.dart';
 import '../widgets/button/add_note_button.dart';
 import '../widgets/button/pesquisar.dart';
-import '../widgets/functions/new_items_list.dart';
+import '../widgets/functions/new_file_list.dart';
 
 class App extends StatelessWidget {
   @override
@@ -63,7 +63,11 @@ class _PastasScreenState extends State<PastasScreen> {
           children: [
             Column(
               children: [
-                NamePage(text: 'Pastas'),
+                
+               
+                 NamePage(text: 'Pastas'),
+              
+             
                 Expanded(
                   child: SingleChildScrollView(
                     child: Padding(
@@ -73,7 +77,7 @@ class _PastasScreenState extends State<PastasScreen> {
                         children: [
                           BotaoPesquisa(
                             controller: _searchController,
-                            hintText: 'Pesquise aqui...',
+                          
                           ),
                           SizedBox(
                             height: 12,
@@ -112,7 +116,7 @@ class _PastasScreenState extends State<PastasScreen> {
               left: 16,
               child: BotaoAdicionarArquivo(
                 onAdd: (newItem) {
-                  addItem(newItem);
+                  addItem(newItem); // Certifique-se de que 'addItem' está definido no escopo
                 },
               ),
             ),
@@ -121,9 +125,48 @@ class _PastasScreenState extends State<PastasScreen> {
               right: 16,
               child: AddNoteButton(
                 onPressed: () {
-                  // Ação ao clicar no botão de adicionar nota
-                  print('Adicionar nota clicado');
-                },
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      final TextEditingController _nameController = TextEditingController();
+                      return AlertDialog(
+                        title: Text('Adicionar Nova Nota'),
+                        content: TextField(
+                          controller: _nameController,
+                          decoration: InputDecoration(labelText: 'Nome da Nota'),
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop(); // Fecha o diálogo
+                            },
+                            child: Text('Cancelar'),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              final String name = _nameController.text.trim();
+                              if (name.isNotEmpty) {
+                                final FolderItem newItem = FolderItem(
+                                  name: name,
+                                  count: 0, // Valor padrão
+                                  onTap: () {
+                                    // Ação ao clicar na nova nota
+                                    print('Nota $name clicada');
+                                  },
+                                );
+                                setState(() {
+                                  newItems.add(newItem); // Adiciona a nova nota à lista
+                                });
+                              }
+                              Navigator.of(context).pop(); // Fecha o diálogo
+                            },
+                            child: Text('Adicionar'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }, onAdd: (FolderItem ) {  },
               ),
             ),
           ],

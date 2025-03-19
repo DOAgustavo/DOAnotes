@@ -8,6 +8,7 @@ class CustomPaddingContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+    height: 115,
       decoration: BoxDecoration(
         color: const Color.fromARGB(255, 58, 58, 58),
         borderRadius: BorderRadius.circular(10), // Diminuir o borderRadius

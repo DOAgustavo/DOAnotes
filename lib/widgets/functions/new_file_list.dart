@@ -11,10 +11,10 @@ class NewItemsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300, // Defina a altura máxima desejada
+      height: 325, // Defina a altura máxima desejada
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
+        // Cor de fundo verde claro
+        borderRadius: BorderRadius.circular(10),
       ),
       child: SingleChildScrollView(
         child: CustomPaddingContainer(
@@ -23,7 +23,7 @@ class NewItemsList extends StatelessWidget {
             children: [
               for (int i = 0; i < newItems.length; i++)
                 Dismissible(
-                  key: Key(newItems[i].name),
+                  key: Key('${newItems[i].name}-$i'), // Garante que a chave seja única
                   direction: DismissDirection.endToStart,
                   dismissThresholds: {
                     DismissDirection.endToStart: 0.5,
@@ -32,12 +32,12 @@ class NewItemsList extends StatelessWidget {
                     onRemove(i);
                   },
                   background: Container(
-                    color: Colors.red,
+                    
                     alignment: Alignment.centerRight,
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Icon(
                       Icons.delete,
-                      color: Colors.white,
+                      color: const Color.fromARGB(255, 255, 255, 255),
                     ),
                   ),
                   child: Row(
